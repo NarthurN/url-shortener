@@ -24,6 +24,8 @@ type HTTPServer struct {
 func MustLoad() *Config {
 	configPath := flag.String("config", "./config/local.yaml", "Set path to the config file")
 
+	flag.Parse()
+
 	if _, err := os.Stat(*configPath); os.IsNotExist(err) {
 		log.Fatalf("config file | %s | is not exist", *configPath)
 	}
